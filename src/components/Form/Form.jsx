@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import s from "./form.module.scss";
 import { Input } from "antd";
 import { UsergroupAddOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 
 const Form = () => {
   const [user, setUser] = useState({
@@ -10,7 +11,7 @@ const Form = () => {
   });
 
   return (
-    <div>
+    <div className={s.container}>
       <Input
         size="large"
         placeholder="large size"
@@ -19,6 +20,7 @@ const Form = () => {
         onChange={(e) => {
           setUser({ ...user, name: e.target.value });
         }}
+        className={s.form_input}
       />
       <Input
         size="large"
@@ -29,6 +31,8 @@ const Form = () => {
           setUser({ ...user, password: e.target.value });
         }}
       />
+
+      <Button className={s.form_btn}>Add user</Button>
     </div>
   );
 };
